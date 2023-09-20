@@ -1,0 +1,90 @@
+h1{
+    display:flex;
+    justify-content: center;
+}
+
+#choiceTitle{
+    display:flex;
+    justify-content: center;
+}
+
+
+.pChoices{
+    display:flex;
+    justify-content:space-evenly;
+    margin-left:20%;
+    margin-right:20%;
+    
+}
+.radioButton{
+    display:flex;
+    justify-content: space-evenly;
+    margin-left:19%;
+    margin-right:20%;
+    
+    
+}
+.buttons{
+    display:flex;
+    justify-content: center;
+    margin:1%;
+}
+
+button{
+    margin:1%;
+}
+
+#computerBox{
+    border:1px;
+    border-color: black;
+    border-style: solid;
+}
+#score{
+    border:1px;
+    border-color: black;
+    border-style: solid;
+    margin-top: 10px;
+    display:flex;
+    justify-content: center;
+    white-space:pre-wrap;
+}
+
+#win{
+    display:flex;
+    justify-content: center;
+    background-color: green;
+    margin-left:30%;
+    margin-right:30%;
+    display:none;
+}
+
+#lost{
+    display:flex;
+    justify-content: center;
+    background-color: red;
+    margin-left:30%;
+    margin-right:30%;
+    display:none;
+}
+
+#computerBox{
+    display:flex;
+    justify-content: center;
+    white-space: pre-wrap;   
+}
+
+#computerGenerated{
+    display:flex;
+    justify-content: center;
+}
+
+
+#round{
+    display:flex;
+    justify-content: center;
+    white-space:pre-wrap;
+    border:1px;
+    border-color: black;
+    border-style: solid;
+    margin-top: 10px;
+}
