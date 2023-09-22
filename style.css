@@ -32,21 +32,17 @@ h1{
 
 button{
     margin:1%;
+    
 }
 
-#computerBox{
-    border:1px;
-    border-color: black;
-    border-style: solid;
-}
 #score{
     border:1px;
-    border-color: black;
     border-style: solid;
     margin-top: 10px;
     display:flex;
-    justify-content: center;
+    align-items: center;
     white-space:pre-wrap;
+    flex-direction: column;
 }
 
 #win{
@@ -70,7 +66,9 @@ button{
 #computerBox{
     display:flex;
     justify-content: center;
-    white-space: pre-wrap;   
+    white-space: pre-wrap; 
+    border:1px;
+    border-style: solid;  
 }
 
 #computerGenerated{
@@ -84,7 +82,12 @@ button{
     justify-content: center;
     white-space:pre-wrap;
     border:1px;
-    border-color: black;
     border-style: solid;
     margin-top: 10px;
+    padding:1px;
+}
+
+#newGame{
+    display:flex;
+    justify-content: center;
 }

@@ -1,3 +1,5 @@
+var scorePlayer = 0;
+var scoreComputer = 0;
 
 function submit() {
     let rock = document.getElementById("rock");
@@ -57,36 +59,66 @@ function computerChoice(playerChoice) {
     const text = document.createTextNode(computer2);
     showText.append('\n');
     showText.appendChild(text);
-    showScore(playerChoice,computer);
+    show(playerChoice, computer);
 
 }
 
 
-function showScore(playerChoice,computerChoice){
-    
-    const showTextScore=document.getElementById('round');
+function show(playerChoice, computerChoice) {
+
+    const showTextScore = document.getElementById('round');
     let text;
-    if(playerChoice == computerChoice){
+    let test;
+    let winner;
+    if (playerChoice == computerChoice) {
+        document.getElementById("win").style.display = 'none';
+        document.getElementById("lost").style.display = 'none';
         text = document.createTextNode("Draw!");
         showTextScore.append('\n');
         showTextScore.appendChild(text);
-
-    }else if(playerChoice == 1 && computerChoice == 2){
-        text= document.createTextNode("Computer Wins!");
+    } else if ((playerChoice == 1 && computerChoice == 2) || (playerChoice == 2 && computerChoice == 3) || (playerChoice == 3 && computerChoice == 1)) {
+        document.getElementById("lost").style.display = 'flex';
+        document.getElementById("win").style.display = 'none';
+        text = document.createTextNode("Computer Wins!");
         showTextScore.append('\n');
         showTextScore.appendChild(text);
+        scoreComputer++;
+        calculateScore();
 
-    }else if(playerChoice == 1 && computerChoice ==3){
+
+    } else if ((playerChoice == 1 && computerChoice == 3) || (playerChoice == 2 && computerChoice == 1) || (playerChoice == 3 && computerChoice == 2)) {
+        document.getElementById("win").style.display = 'flex';
+        document.getElementById("lost").style.display = 'none';
         text = document.createTextNode("Player Wins!")
         showTextScore.append('\n');
         showTextScore.appendChild(text);
-     
+        scorePlayer++;
+        calculateScore();
+
     }
+
 
 }
 
-function clearScore(){
-    const showTextScore =document.getElementById('round');
-    text= document.createTextNode("");
-    showTextScore.
+function clearGame() {
+    location.reload();
+}
+
+function calculateScore() {
+    const showScorePlayer = document.getElementById('player');
+    const showScoreComputer = document.getElementById('computer');
+    showScoreComputer.replaceChildren("Computer : " + scoreComputer);
+    showScorePlayer.replaceChildren("Player : " + scorePlayer);
+    showWinner();
+}
+
+function showWinner() {
+
+    if (scorePlayer == 3) {
+        alert("You win!!!");
+        location.reload();
+    } else if (scoreComputer == 3) {
+        alert("You lose!!");
+        location.reload();
+    }
 }
