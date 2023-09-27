@@ -91,3 +91,17 @@ button{
     display:flex;
     justify-content: center;
 }
+
+.buttonGroup{
+    display:flex;
+    justify-content: center;
+    text-align:center;
+}
+
+.buttonChoices{
+    border:2px;
+    border-style: solid;
+    width:100px;
+    height: 100px;
+    text-align:center;
+}

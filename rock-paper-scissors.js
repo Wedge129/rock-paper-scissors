@@ -1,43 +1,42 @@
 var scorePlayer = 0;
 var scoreComputer = 0;
+var rock, paper, scissors = false;
 
-function submit() {
-    let rock = document.getElementById("rock");
-    let paper = document.getElementById("paper");
-    let scissors = document.getElementById("scissors");
-    let playerChoice;
-    if (rock.checked) {
-        playerChoice = 1;
-        rock.checked = false;
-        computerChoice(playerChoice);
-    } else if (paper.checked) {
-        playerChoice = 2;
-        paper.checked = false;
-        computerChoice(playerChoice);
-    } else if (scissors.checked) {
-        playerChoice = 3;
-        scissors.checked = false;
-        computerChoice(playerChoice);
-    } else {
-        console.log("Nothing is selected");
-        return;
-    }
-
+function getPlayersChoiceRock() {
+    rock = true;
+    paper = false;
+    scissors = false;
+    playersChoice();
 }
 
-function clearSelection() {
-
-    let rock = document.getElementById("rock");
-    let paper = document.getElementById("paper");
-    let scissors = document.getElementById("scissors");
-    if (rock.checked || paper.checked || scissors.checked) {
-        rock.checked = false;
-        paper.checked = false;
-        scissors.checked = false;
-    }
+function getPlayersChoicePaper() {
+    paper = true;
+    rock = false;
+    scissors = false;
+    playersChoice();
 }
 
-function computerChoice(playerChoice) {
+function getPlayersChoiceScissors() {
+    scissors = true;
+    rock = false;
+    paper = false;
+    playersChoice();
+}
+
+function playersChoice() {
+    let choice;
+    if (rock) {
+        choice = 1;
+    } else if (paper) {
+        choice = 2;
+    } else if (scissors) {
+        choice = 3;
+    }
+    
+    computerChoice(choice);
+}
+
+function computerChoice(choice) {
 
     let computer = Math.floor(Math.random() * 3 + 1);
     let computer2;
@@ -59,17 +58,15 @@ function computerChoice(playerChoice) {
     const text = document.createTextNode(computer2);
     showText.append('\n');
     showText.appendChild(text);
-    show(playerChoice, computer);
+    show(computer,choice);
 
 }
 
 
-function show(playerChoice, computerChoice) {
+function show(computerChoice,playerChoice) {
 
     const showTextScore = document.getElementById('round');
     let text;
-    let test;
-    let winner;
     if (playerChoice == computerChoice) {
         document.getElementById("win").style.display = 'none';
         document.getElementById("lost").style.display = 'none';
@@ -109,7 +106,10 @@ function calculateScore() {
     const showScoreComputer = document.getElementById('computer');
     showScoreComputer.replaceChildren("Computer : " + scoreComputer);
     showScorePlayer.replaceChildren("Player : " + scorePlayer);
-    showWinner();
+    console.log(scorePlayer);
+    console.log(scoreComputer);
+    if(scorePlayer == 3 || scoreComputer ==3){ showWinner();}
+   
 }
 
 function showWinner() {

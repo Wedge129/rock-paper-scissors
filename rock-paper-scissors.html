@@ -11,21 +11,12 @@
 <body>
     <h1>Welcome to Rock Paper Scissors</h1>
     <p id="choiceTitle">Make your choice : </p>
-    <div class="pChoices">
-        <p>Rock</p>
-        <p>Paper</p>
-        <p>Scissors</p>
+    <div class="buttonGroup">
+        <button class="buttonChoices" id="rockButton" onclick="getPlayersChoiceRock()">Rock</button>
+        <button class="buttonChoices" id="paperButton" onclick="getPlayersChoicePaper()">Paper</button>
+        <button class="buttonChoices" id="scissorsButton" onclick="getPlayersChoiceScissors()">Scissors</button>
     </div>
 
-    <div class="radioButton">
-        <input type="radio" id="rock" name="gameChoice" value="Rock" autocomplete="off">
-        <input type="radio" id="paper" name="gameChoice" value="Paper" autocomplete="off">
-        <input type="radio" id="scissors" name="gameChoice" value="Scissors" autocomplete="off">
-    </div>
-    <div class="buttons">
-        <button type="button" onclick="submit()">Submit choice</button>
-        <button type="button" onclick="clearSelection()">Clear selection</button>
-    </div>
     <p id="win">WIN</p>
     <p id="lost">LOST</p>
     <div id="computerBox">
